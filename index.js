@@ -37,15 +37,16 @@ const ratKing = new Fighter("🐀Rat King", 5, 30);
 
 function deathMatch(fighter1, fighter2) {
     let count = 1;
+    console.log(`FIGHT DAY: ${fighter1.namee} VS ${fighter2.namee}`);
     while(fighter1.life > 0 && fighter2.life > 0) {
     console.log(`🎲 ROUND ${count}`);
     fighter1.fight(fighter2);
-    console.log(`${fighter2.namee} ❤️: ${fighter2.life}`);
+    console.log(`${fighter2.namee} ❤️: ${fighter2.life} HP remaining`);
     if(fighter2.life <= 0){
         console.log(`${fighter2.namee} : 💀, ✌️${fighter1.namee} wins!✌️`)
         break;};
     fighter2.fight(fighter1);
-    console.log(`${fighter1.namee} ❤️: ${fighter1.life}`);
+    console.log(`${fighter1.namee} ❤️: ${fighter1.life} HP remaining`);
     if(fighter1.life <= 0){
         console.log(`${fighter1.namee} : 💀, ✌️${fighter2.namee} wins!✌️`)
         break;};
