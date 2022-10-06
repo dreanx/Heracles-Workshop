@@ -13,9 +13,13 @@ class Fighter {
   fight(attacked) {
     let damageDone =
       Math.max(1, Math.floor(Math.random() * this.strength * 2)) - attacked.dexterity;
-    if (damageDone < 0) {
+    if (damageDone <= 0) {
       console.log(`${this.namee} miss! 🛡️`);
     }
+    else if (Math.floor(Math.random()*6 > 5 )) { console.log(
+        `❕❕❕CRITICAL❕❕❕ ${this.namee} ⚔️ ${attacked.namee} for ${4*damageDone} HP`
+      );
+      return (attacked.life = attacked.life - 4*damageDone);}
     else {
       console.log(
         `${this.namee} ⚔️ ${attacked.namee} for ${damageDone} HP`
@@ -28,10 +32,11 @@ class Fighter {
 
 const Heracles = new Fighter("👨Heracles", 20, 6);
 const NemeanLion = new Fighter("😺Nemean Lion", 11, 13);
-
+const Dragon = new Fighter("🐉Dragon", 30, 1);
+const ratKing = new Fighter("🐀Rat King", 5, 30);
 
 function deathMatch(fighter1, fighter2) {
-    let count = 0;
+    let count = 1;
     while(fighter1.life > 0 && fighter2.life > 0) {
     console.log(`🎲 ROUND ${count}`);
     fighter1.fight(fighter2);
@@ -47,4 +52,4 @@ function deathMatch(fighter1, fighter2) {
     count++;
 }}
 
-deathMatch(Heracles, NemeanLion);
+deathMatch(Dragon, NemeanLion);
