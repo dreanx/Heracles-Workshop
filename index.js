@@ -1,6 +1,6 @@
 // First Labour : Heracles vs Nemean Lion
 // use your Figher class here
-const MAX_LIFE = 100;
+const MAX_LIFEe = 100;
 
 class Fighter {
   constructor(namee, strength, dexterity, life) {
